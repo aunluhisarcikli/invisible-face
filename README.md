@@ -23,15 +23,20 @@ Only the haarcascade model is not sufficient in finding the eyes and mouth. Henc
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('model/shape_predictor_68_face_landmarks.dat')
 
-rects = detector(gray, 0)
+rects = detector(gray, 0) # convert to grayscale
     for rect in rects:
-	shape = predictor(gray, rect) # grayscale
-        shape = face_utils.shape_to_np(shape) # landmarks 
+    	# get landmarks 
+	shape = predictor(gray, rect) 
+        shape = face_utils.shape_to_np(shape) 
 
         lip = shape[48:60] # lip landmarks values
         eye_left = shape[36:42] # left eye landmarks values
         eye_right = shape[42:48] # right eye landmarks values
 ```
+<p align="center">
+<img src="facial_landmarks_68.jpg" width="330" height="280" ><br> 
+68 face landmarks
+</p>	
 
 ## Installation
 * **Clone** this repository to your local machine using ` https://github.com/aunluhisarcikli/invisible-face.git `
@@ -43,5 +48,6 @@ rects = detector(gray, 0)
 	In addition for invisible eyes and mouth: 
 	* dlib
 	* imutils
-
+	
+## Sample
 <img src="invisible.gif" width="400" height="320">  <img src="invisible.jpg" width="400" height="320">
