@@ -43,3 +43,5 @@ rects = detector(gray, 0)
 	In addition for invisible eyes and mouth: 
 	* dlib
 	* imutils
+
+<img src="invisible.gif" width="400" height="280">
