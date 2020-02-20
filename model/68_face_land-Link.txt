@@ -1,0 +1,4 @@
+
+Download it from this link and paste it into the model directory
+
+http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
