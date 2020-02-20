@@ -19,14 +19,14 @@ for (x, y, w, h) in faces:
 ```
 Only the haarcascade model is not sufficient in finding the eyes and mouth. Hence; **68 face landmarks**, which can extract 68 different points on the face, will be helpful. It can also take advantage of dlib for face detection. This is used for the *invisible_eyes&mouth.py*.
 ```
+#models
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('model/shape_predictor_68_face_landmarks.dat')
 
 rects = detector(gray, 0)
     for rect in rects:
-
-        shape = predictor(gray, rect)
-        shape = face_utils.shape_to_np(shape)
+	shape = predictor(gray, rect) # grayscale
+        shape = face_utils.shape_to_np(shape) # landmarks 
 
         lip = shape[48:60] # lip landmarks values
         eye_left = shape[36:42] # left eye landmarks values
@@ -44,4 +44,4 @@ rects = detector(gray, 0)
 	* dlib
 	* imutils
 
-<img src="invisible.gif" width="400" height="280">
+<img src="invisible.gif" width="400" height="320">  <img src="invisible.jpg" width="400" height="320">
